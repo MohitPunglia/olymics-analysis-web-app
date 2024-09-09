@@ -33,3 +33,14 @@ def fetch_medal_tally(df, year, country):
     x["total"] = x["Gold"] + x["Silver"] + x["Bronze"]
 
     retrun(x)
+
+def country_year_list(df):
+    years=df['Year'].unique().tolist()
+    years.sort()
+    years.insert(0,'Overall')
+
+    country=np.unique(df['region'].dropna().values).tolist()
+    country.sort()
+    country.insert(0,'Overall')
+
+    return years,country
